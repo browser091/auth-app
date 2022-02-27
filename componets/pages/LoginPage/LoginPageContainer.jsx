@@ -3,7 +3,11 @@ import { compose } from "redux";
 import React, { useState } from "react";
 import Parse from "parse/dist/parse.min.js";
 
+import { useDispatch } from "react-redux";
+
 import LoginPage from "./LoginPage";
+import { logInActionCreator } from "../../state/authReducer";
+import { userActions } from "../../../app/actions";
 
 import { useMappedActions, useMappedState } from "./bindings";
 
@@ -49,5 +53,20 @@ const LoginPageContainer = (props) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    state: state.authUser,
+    // username: username
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logIn: (id, password, username) =>
+      dispatch(logInActionCreator(id, password, username)),
+  };
+};
+// export default compose(
+//     connect(mapStateToProps, mapDispatchToProps)
+// )(LoginPage);
 
 export default LoginPageContainer;
