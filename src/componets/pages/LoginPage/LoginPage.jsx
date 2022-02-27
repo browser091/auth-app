@@ -18,6 +18,7 @@ const LoginPage = (props) => {
                             value={props.password}
                             onChange={(event) => props.setPassword(event.target.value)}
                             placeholder="Password"
+                            type='password'
                         />
                     </div>
                     {props.error&&<div style={{color: "red"}}>{props.error}</div>}
