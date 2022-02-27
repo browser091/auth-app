@@ -9,7 +9,7 @@ import {useMappedActions, useMappedState} from "./bindings";
 const LoginPageContainer = (props) => {
     let navigate = useNavigate()
     // debugger
-    const {isAuth, userName} = useMappedState();
+    const {isAuth, userName, error} = useMappedState();
     const {login, logout} = useMappedActions();
 
     const [username, setUsername] = useState("");
@@ -47,6 +47,8 @@ const LoginPageContainer = (props) => {
             isAuth={isAuth}
             setUsername={setUsername}
             setPassword={setPassword}
+            error={error}
+
         />
     );
 };

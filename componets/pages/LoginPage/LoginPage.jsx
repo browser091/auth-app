@@ -1,7 +1,7 @@
 import React from "react";
 
 const LoginPage = (props) => {
-  // debugger
+  debugger
   return (
     <div>
       <div className="header">

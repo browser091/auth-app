@@ -12,9 +12,10 @@ import { userActions } from "../../../app/actions";
 import { useMappedActions, useMappedState } from "./bindings";
 
 const LoginPageContainer = (props) => {
-  // debugger
-  const { isAuth, userName } = useMappedState();
+  debugger
+  const { isAuth, userName, error } = useMappedState();
   const { login, logout } = useMappedActions();
+  console.log(error)
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -49,22 +50,23 @@ const LoginPageContainer = (props) => {
       isAuth={isAuth}
       setUsername={setUsername}
       setPassword={setPassword}
+      error={error}
     />
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    state: state.authUser,
-    // username: username
-  };
-};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    logIn: (id, password, username) =>
-      dispatch(logInActionCreator(id, password, username)),
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     state: state.authUser,
+//     // username: username
+//   };
+// };
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     logIn: (id, password, username) =>
+//       dispatch(logInActionCreator(id, password, username)),
+//   };
+// };
 // export default compose(
 //     connect(mapStateToProps, mapDispatchToProps)
 // )(LoginPage);

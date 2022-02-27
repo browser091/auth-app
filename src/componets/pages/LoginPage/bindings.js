@@ -7,6 +7,7 @@ import { userThunks } from "../../../app/thunks/";
 export const useMappedState = () => {
   return useMapState((state) => {
     return {
+      error:userSelectors.getError(state),
       isAuth: userSelectors.getUserIsAuth(state),
       userName: userSelectors.getUserName(state),
     };

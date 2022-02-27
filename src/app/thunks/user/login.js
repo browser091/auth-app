@@ -15,7 +15,7 @@ export const login =
       return true;
     } catch (error) {
       console.log("error", error);
-      dispatch(userActions.loginFailure());
+      dispatch(userActions.loginFailure({error}));
       return false;
     }
   };

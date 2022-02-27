@@ -7,6 +7,7 @@ export const initialState = {
   password: null,
   isAuth: false,
   currentUser: null,
+  error:null
 };
 
 const reducerMap = {
@@ -22,6 +23,12 @@ const reducerMap = {
       ...initialState,
     };
   },
+[userActions.loginFailure]:(state, action)=>{
+    return{
+      ...state,
+      error: action.payload.error.message
+    }
+}
 };
 
 export default handleActions(reducerMap, initialState);
