@@ -4,11 +4,8 @@ import { userActions } from "../../actions";
 
 export const logout = () => async (dispatch, getState) => {
   try {
-    const currentUser = await Parse.User.logOut();
-    console.log("currentUser", currentUser);
-    // const currentUser = await Parse.User.current();
-
-    dispatch(userActions.logout());
+    await Parse.User.logOut();
+    dispatch(userActions.resetUser());
     return true;
   } catch (error) {
     console.log("error", error);

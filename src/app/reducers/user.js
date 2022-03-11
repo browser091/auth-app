@@ -1,34 +1,27 @@
-import { handleActions } from "redux-actions";
+import {handleActions} from "redux-actions";
 
-import { userActions } from "../actions";
+import {userActions} from "../actions";
 
 export const initialState = {
-  username: null,
-  password: null,
-  isAuth: false,
-  currentUser: null,
-  error:null
+    username: null,
+    isLoginning: true,
 };
 
 const reducerMap = {
-  [userActions.loginSuccess]: (state, action) => {
-    return {
-      ...state,
-      ...action.payload,
-      isAuth: true,
-    };
-  },
-  [userActions.logout]: (state, action) => {
-    return {
-      ...initialState,
-    };
-  },
-[userActions.loginFailure]:(state, action)=>{
-    return{
-      ...state,
-      error: action.payload.error.message
-    }
-}
+    [userActions.setUser]: (state, action) => {
+        return {
+            ...action.payload,
+        };
+    },
+    [userActions.resetUser]: () => {
+        return {...initialState, isLoginning: false}
+    },
+    [userActions.initUserStart]: (state) => {
+        return {...state, isLoginning: true}
+    },
+    [userActions.initUserFinish]: (state) => {
+        return {...state, isLoginning: false}
+    },
 };
 
 export default handleActions(reducerMap, initialState);

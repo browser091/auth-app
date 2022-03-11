@@ -12,5 +12,5 @@ if (process.env.NODE_ENV === "development" && module.hot) {
     store.replaceReducer(newRootReducer);
   });
 }
-
+window.store=store
 export default store;
