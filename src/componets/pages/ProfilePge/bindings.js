@@ -7,6 +7,7 @@ export const useMappedState = () => {
     return {
       isAuth: userSelectors.getUserIsAuth(state),
       isLoginning: userSelectors.getIsLoginning(state),
+      userName:userSelectors.getUserName(state)
     };
   });
 };

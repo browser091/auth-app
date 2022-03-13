@@ -1,18 +1,28 @@
-.app-wrapper{
-  margin: 0 auto;
-  display: grid;
-  max-width: 1200px;
-  grid-template-areas:
-          'h h'
-          'n c';
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
+/*@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');*/
+/*@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Supermercado+One&family=Syne+Mono&display=swap')*/
+*{
+    /*font-family: 'Luckiest Guy', cursive;*/
+    font-family: 'Syne Mono', monospace;
+}
+
+
+.app-wrapper {
+    margin: 0 auto;
+    display: grid;
+    max-width: 1200px;
+    grid-template-areas: 'h h' 'n c';
+    grid-template-rows: 20px 1fr;
+    grid-template-columns: 2fr 10fr;
 
 
 }
 
-.content{
-  padding: 15px;
-  grid-area: c;
-  background-color:teal
+.content {
+    text-align: center;
+    margin-right: 20px;
+    padding: 15px;
+    grid-area: c;
+    background-color: #BABD8D;
+    box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    min-height: 300px;
 }

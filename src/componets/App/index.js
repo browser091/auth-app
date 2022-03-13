@@ -5,7 +5,7 @@ import ProfilePge from "../pages/ProfilePge";
 import LoginPage from "../pages/LoginPage";
 import MainPge from "../pages/MainPge";
 import InfoPage from "../pages/InfoPage";
-
+import Table from "../pages/TablePage/Table";
 import NavbarContainer from "../Navbar";
 
 import {initParse} from "./services";
@@ -31,6 +31,8 @@ const  App = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/profile" element={<ProfilePge />} />
             <Route path="/info" element={<InfoPage />} />
+            <Route path="/table" element={<Table />} />
+
           </Routes>
         </div>
       </div>

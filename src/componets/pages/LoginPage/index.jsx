@@ -1,6 +1,7 @@
 import {useNavigate} from 'react-router-dom'
 import React, {useState} from "react";
 
+import './index.css'
 import {useMappedActions, useMappedState} from "./bindings";
 
 
@@ -11,7 +12,7 @@ const initialValues = {
 
 const LoginPageContainer = () => {
     let navigate = useNavigate()
-    const {isAuth} = useMappedState();
+    const {isAuth, isLoginning} = useMappedState();
     const {login} = useMappedActions();
 
     const [error, setError] = useState('');
@@ -29,6 +30,10 @@ const LoginPageContainer = () => {
 
     const handleChange = (e) => {
         setData({...data, [e.target.name]: e.target.value})
+    }
+    if(isLoginning){
+        {console.log('loading')}
+        return <><h1>Loading</h1></>
     }
 
     if (isAuth) {
@@ -55,7 +60,7 @@ const LoginPageContainer = () => {
                         autoComplete='off'
                     />
                 </div>
-                {error && <div style={{color: "red"}}>{error}</div>}
+                {error && <div className='error'>{error}</div>}
                 <div className="form_buttons">
                     <button
                         type="submit"
