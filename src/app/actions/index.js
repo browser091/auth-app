@@ -1,3 +1,4 @@
 import * as userActions from "./user";
+import * as tableActions from "./table";
 
-export { userActions };
+export { userActions , tableActions};

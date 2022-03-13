@@ -3,6 +3,7 @@ import React, {useState} from "react";
 
 import './index.css'
 import {useMappedActions, useMappedState} from "./bindings";
+import Preloader from "../../Preloader/Preloader";
 
 
 const initialValues = {
@@ -16,11 +17,15 @@ const LoginPageContainer = () => {
     const {login} = useMappedActions();
 
     const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const [data, setData] = useState(initialValues);
 
     const doUserLogIn = async function (e) {
+        setIsLoading(true)
         e.preventDefault()
         const error = await login(data);
+        setIsLoading(false)
+
         if (!error) {
             navigate('/profile');
         } else {
@@ -31,9 +36,9 @@ const LoginPageContainer = () => {
     const handleChange = (e) => {
         setData({...data, [e.target.name]: e.target.value})
     }
-    if(isLoginning){
-        {console.log('loading')}
-        return <><h1>Loading</h1></>
+
+    if(isLoading){
+        return <Preloader/>
     }
 
     if (isAuth) {
